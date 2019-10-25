@@ -1,0 +1,46 @@
+<!-- ./views/layouts/main.handlebars -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/test.css">
+</head>
+
+<body>
+    <!-- navigation here -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Movie List</a>
+        </div>
+    </nav>
+
+    <!-- partial templates will replace the part of "body" here -->
+    <!-- 下面這行的意思，就是會把 partial template 的內容都放在這裡顯示。 -->
+    {{{ body }}}
+    {{!-- 在 handlebars 樣板中呈現 JavaScript 資料時，可以使用 {{ }} 或 {{{ }}} 符號。
+    
+    如果是使用兩個大括號，則裡面的內容會被當作「純字串」處理。因此如果內容中有 HTML 標籤（例如<h1>Node.js</h1>），則會被當成純字串直接顯示出來，而不會被當作 HTML 處理。也就是瀏覽器會顯示 「<h1>Node.js </h1>」 而不會變成粗體的 Node.js 標題。
+    
+    所以，如果你希望內容不是以純字串的方式顯示，則可以用三個大括號 {{{ }}} 來把資料包起來。在剛剛的例子中，瀏覽器上面就會出現粗體的「Node.js」字樣。 --}}
+
+    {{!-- javascript通常放在body的最下面, 因為js牽涉到DOM的操作, 因此順序上來說要讓DOM
+    先load完之後才執行js --}}
+    {{!-- 另外, 因為在 Bootstrap 中會用到 jQuery 和 popper.js，因此載入時需要留意順序，jQuery 和 popper.js 一定要放在 Bootstrap 之前 --}}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
